@@ -11,6 +11,7 @@ const PostsPage = () => {
   const [error, setError] = useState(null);
   const [notification, setNotification] = useState("");
   const [showModal, setShowModal] = useState(false);
+  const [typeMessage, setTypeMessage] = useState("success");
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [currentPost, setCurrentPost] = useState(null);
@@ -69,15 +70,18 @@ const PostsPage = () => {
       );
       setNotification("Post actualizado exitosamente");
       setShowEditModal(false);
+      setTypeMessage("success");
       setShowModal(true);
     } catch (err) {
       setNotification("Error al actualizar el post");
+      setTypeMessage("error");
       setShowModal(true);
     }
   };
 
   const handleCloseModal = () => {
     setShowModal(false);
+    setTypeMessage("success");
     setNotification("");
   };
 
@@ -93,7 +97,7 @@ const PostsPage = () => {
       <div className="flex justify-end mb-4">
         <button
           onClick={() => setShowCreateModal(true)}
-          className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
+          className="px-4 py-2 bg-green-600 text-white rounded transform hover:bg-green-700 hover:-translate-y-1 hover:scale-105 transition-transform duration-300"
         >
           Nuevo Post
         </button>
@@ -112,7 +116,7 @@ const PostsPage = () => {
       )}
 
       {showModal && (
-        <NotificationModal message={notification} onClose={handleCloseModal} />
+        <NotificationModal message={notification} onClose={handleCloseModal} type={typeMessage} />
       )}
 
       {showCreateModal && (

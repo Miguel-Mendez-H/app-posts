@@ -79,13 +79,15 @@ const DataTable = ({
                 <div className="flex items-center">
                   <button
                     onClick={() => onEdit(row.id)}
-                    className="text-blue-500 hover:text-blue-600 mr-2"
+                    aria-label={`Edit ${row.title}`}
+                    className="text-white bg-blue-500 hover:bg-blue-600 hover:-translate-y-1 hover:shadow-lg transition-transform duration-300 mr-2 px-2 py-1 rounded"
                   >
                     <AiOutlineEdit size={20} />
                   </button>
                   <button
                     onClick={() => onDelete(row.id)}
-                    className="text-red-500 hover:text-red-600"
+                    aria-label={`Delete ${row.title}`}
+                    className="text-white bg-red-500 hover:bg-red-600 hover:-translate-y-1 hover:shadow-lg transition-transform duration-300 px-2 py-1 rounded"
                   >
                     <AiOutlineDelete size={20} />
                   </button>
@@ -96,7 +98,6 @@ const DataTable = ({
         </tbody>
       </table>
 
-      {/* Selector de items por página */}
       <div className="flex justify-between items-center mt-4">
         <div>
           <label htmlFor="itemsPerPage" className="mr-2 text-sm text-gray-600">
@@ -105,6 +106,7 @@ const DataTable = ({
           <select
             id="itemsPerPage"
             value={itemsPerPage}
+            aria-label="Items per page"
             onChange={handleItemsPerPageChange}
             className="px-2 py-1 border border-gray-300 rounded text-sm"
           >
@@ -116,9 +118,9 @@ const DataTable = ({
           </select>
         </div>
 
-        {/* Paginación */}
         <div className="flex items-center gap-2">
           <button
+            aria-label="Previous Page"
             onClick={() => handlePageChange(currentPage - 1)}
             disabled={currentPage === 1}
             className="text-gray-600 hover:text-gray-800 disabled:opacity-50"
@@ -141,6 +143,7 @@ const DataTable = ({
           ))}
 
           <button
+            aria-label="Next Page"
             onClick={() => handlePageChange(currentPage + 1)}
             disabled={currentPage === totalPages}
             className="text-gray-600 hover:text-gray-800 disabled:opacity-50"

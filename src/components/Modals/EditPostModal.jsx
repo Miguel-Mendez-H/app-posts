@@ -6,7 +6,6 @@ const EditPostModal = ({ post, onUpdate, onClose }) => {
   const [body, setBody] = useState('');
   const [loading, setLoading] = useState(false);
 
-  // Set initial values when post is selected
   useEffect(() => {
     if (post) {
       setTitle(post.title);
@@ -34,7 +33,7 @@ const EditPostModal = ({ post, onUpdate, onClose }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-      <div className="bg-white p-6 rounded shadow-md w-96">
+      <div className="bg-white p-6 rounded shadow-md w-6/12">
         <h2 className="text-2xl font-semibold mb-4">Editar Post</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
@@ -77,7 +76,7 @@ const EditPostModal = ({ post, onUpdate, onClose }) => {
               disabled={loading}
               className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:bg-gray-400"
             >
-              {loading ? 'Cargando...' : 'Actualizar Post'}
+              {loading ? 'Cargando...' : 'Actualizar'}
             </button>
           </div>
         </form>
