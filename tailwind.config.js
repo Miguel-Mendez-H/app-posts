@@ -22,6 +22,11 @@ module.exports = {
         "bounce-in": "bounce-in 0.5s ease-out forwards",
       },
     },
+    screens: {
+      'tablet': '640px',
+      'laptop': '1024px',
+      'desktop': '1280px',
+    },
   },
   plugins: [],
 };

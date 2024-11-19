@@ -48,12 +48,12 @@ const DataTable = ({
 
   return (
     <div>
-      <table className="min-w-full border border-gray-200">
-        <thead className="bg-gray-100">
+      <table className="min-w-full border border-gray-300">
+        <thead className="bg-gray-300">
           <tr>
             {columns.map((col, index) => (
               <th
-                key={index}
+                key={index} 
                 className="px-4 py-2 text-left text-sm font-semibold text-gray-600 border-b"
               >
                 {col.label}
@@ -70,12 +70,12 @@ const DataTable = ({
               {columns.map((col) => (
                 <td
                   key={`${row.id}-${col.accessor}`}
-                  className="px-4 py-2 text-sm text-gray-800 border-b"
+                  className="px-4 py-2 text-sm text-gray-800 border-b tablet: text-sm"
                 >
                   {row[col.accessor]}
                 </td>
               ))}
-              <td className="px-4 py-2 text-sm text-gray-800 border-b">
+              <td className="px-4 py-2 text-sm text-gray-800 border-b tablet: text-sm">
                 <div className="flex items-center">
                   <button
                     onClick={() => onEdit(row.id)}
